@@ -138,7 +138,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icon.svg" />
       </Head>
+      
       <div className={styles.topnav}>
+
+        
         <div className={styles.navlogo}>
           <Link href="/"><Image
                       src="/icon.svg"
@@ -149,29 +152,32 @@ export default function Home() {
                       priority={true}
                     />Comic Generator</Link>
         </div>
+
+
         <div className={styles.navlinks}>
+          {!currentComic && <a href="#" onClick={toggleCurrentComic}>Show Comic</a>}
+          {currentComic && <a href="#" onClick={toggleCurrentComic}>Hide Comic</a>}
           <a
             href="https://github.com/manvi2912"
             target="_blank"
           >
             GitHub
           </a>
-          {!currentComic && <a href="#" onClick={toggleCurrentComic}>Show Comic</a>}
-          {currentComic && <a href="#" onClick={toggleCurrentComic}>Hide Comic</a>}
         </div>
       </div>
       <main className={styles.main}>
         <div className={styles.cloud}>
           <div ref={messageListRef} className={styles.messagelist}>
             {currentComic && <div className={styles.currentComic}>
-              <h2>Current Comic</h2>
-              <p>Last 10 images are shown here</p>
+              <h1 className={styles.centertitle}>Current Comic</h1>
+              <h2 className={styles.centertext}>Last 10 images are shown here</h2>
               <div className={styles.imageContainer}>
                 {latestImages.map((image, index) => {
                   return (<img src={image} width="260px" alt={"Image " + (index + 1)} />)
                 })}
               </div>
-              <button className={styles.closeButton} onClick={toggleCurrentComic}>Close</button>
+              <div>
+              <button className={styles.closeButton} onClick={toggleCurrentComic}>Close</button></div>
             </div>}
             {!currentComic &&  messages.map((message, index) => {
               return (
@@ -217,7 +223,13 @@ export default function Home() {
               );
             })}
             {!currentComic && messages.length===0 && <div className={styles.currentComic}>
-              <h2>No comics here yet, create some...</h2>
+              <Image src="/icon.svg"
+                alt="AI"
+                className={styles.centered}
+                width="100"
+                height="100" />
+                <h1 className={styles.centertitle}>Comic Generator</h1>
+              <h2 className={styles.centertext}>No comics here yet, create some...</h2>
             </div>}
           </div>
         </div>

@@ -194,6 +194,31 @@
   margin: 1rem;
 }
 
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%; 
+  border: 5px solid #C0C0C0;
+  border-radius: 20%;
+  padding: 10px;
+}
+.centertitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00CCCC;
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+.centertext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+}
 .boticon, .usericon {
   margin-right: 1rem;
   border-radius: 0.1rem;
@@ -293,6 +318,7 @@
 }
 
 .closeButton {
+  
   padding: 10px;
   margin-top: 20px;
   background-color: #007bff;
